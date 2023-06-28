@@ -15,11 +15,11 @@ server.use(express.urlencoded({ extended: true }));
 // Asociar el router de productos a la ruta '/productos'
 server.use('/productos', productosRouter);
 
-
 // Control de rutas inexistentes
 server.use('*', (req, res) => {
-    res.status(404).send(`<h1>Error 404</h1><h3>La URL indicada no existe en este servidor</h3>`);
+res.status(404).send(`<h1>Error 404</h1><h3>La URL indicada no existe en este servidor</h3>`);
 });
+
 
 // Método oyente de peticiones
 server.listen(process.env.SERVER_PORT, process.env.SERVER_HOST, () => {
