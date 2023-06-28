@@ -1,19 +1,18 @@
-const express = require("express");
-// const { findOneById, findAll, create, update, borrar } = require("./database/data.manager.js");
+const express = require('express');
 const dotenv = require('dotenv');
 
+const productosRouter = require('./routes/productos_router.js');
+    
+const { findOneById, findAll, create, update, borrar } = require("./database/data.manager.js");
 
-dotenv.config();
 const server = express();
+dotenv.config();
 
 // Middlewares
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
-
-const productosRouter = require('./routes/productosRouter');
-
-// Asociar el router de usuarios a la ruta '/usuarios'
+// Asociar el router de productos a la ruta '/productos'
 server.use('/productos', productosRouter);
 
 
